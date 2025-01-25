@@ -30,7 +30,6 @@ app.all("*", notFound);
     }
     await mongoose.connect(process.env.MONGO_URI_LIVE);
     console.log(`Connected to MongoDB`);
-status exit 0
     // Start the server after a successful connection to MongoDB
     app.listen(PORT, () => {
       console.log(`Server listening on port ${PORT}`);
