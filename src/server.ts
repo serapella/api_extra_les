@@ -1,11 +1,12 @@
 import "dotenv/config";
 import cors from "cors";
 import express from "express";
-import mongoose from "mongoose"; // Voeg mongoose import toe
+import mongoose from "mongoose"; 
 import { notFound } from "./controllers/notFoundController";
 import { specs } from "./swagger";
 import swaggerUi from "swagger-ui-express";
 import todoRoutes from "./routes/todoRoutes";
+import { exit } from "process";
 
 // Variables
 const app = express();
@@ -29,7 +30,7 @@ app.all("*", notFound);
     }
     await mongoose.connect(process.env.MONGO_URI_LIVE);
     console.log(`Connected to MongoDB`);
-
+status exit 0
     // Start the server after a successful connection to MongoDB
     app.listen(PORT, () => {
       console.log(`Server listening on port ${PORT}`);
