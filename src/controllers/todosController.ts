@@ -42,10 +42,11 @@ export const updateTodo = async (req: Request, res: Response) => {
     }
 
     const todo = await Todo.findByIdAndUpdate(
-      id, { completed: !oldtodo.completed }, 
-      { new: true });
+      id, { completed }, // Set completed from the request body
+      { new: true }
+    );
 
-    res.status(200).json(oldtodo);
+    res.status(200).json(todo);
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.log(error.message);

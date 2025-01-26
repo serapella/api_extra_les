@@ -119,10 +119,9 @@ const router = express.Router();
  *               $ref: '#/components/schemas/Error'
  */
 
-router
-  .get("/", getTodos)
-  .post("/", addTodo)
-  .patch("/:id", updateTodo)
-  .delete("/:id", deleteTodo);
+router.get("/", getTodos),
+router.post("/", addTodo),
+router.patch("/:id", updateTodo),
+router.delete("/:id", deleteTodo);
 
 export default router;
