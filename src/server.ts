@@ -25,10 +25,10 @@ app.all("*", notFound);
 // Connect to MongoDB and start the server
 (async () => {
   try {
-    if (!process.env.MONGO_URI_LIVE) {
+    if (!process.env.MONGO_URI) {
       throw new Error("MONGO_URI environment variable is not set");
     }
-    await mongoose.connect(process.env.MONGO_URI_LIVE);
+    await mongoose.connect(process.env.MONGO_URI);
     console.log(`Connected to MongoDB`);
     // Start the server after a successful connection to MongoDB
     app.listen(PORT, () => {
